@@ -46,6 +46,8 @@ var (
 	LevelFatalValue = "fatal"
 	// LevelPanicValue is the value used for the panic level field.
 	LevelPanicValue = "panic"
+	// LevelMobileValue is the value used for the mobile level field.
+	LevelMobileValue = "mobile"
 
 	// LevelFieldMarshalFunc allows customization of global level field marshaling.
 	LevelFieldMarshalFunc = func(l Level) string {

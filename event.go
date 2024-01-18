@@ -3,6 +3,8 @@ package zerolog
 import (
 	"context"
 	"fmt"
+	"github.com/infobip-community/infobip-api-go-sdk/v3/pkg/infobip"
+	"github.com/infobip-community/infobip-api-go-sdk/v3/pkg/infobip/models"
 	"net"
 	"os"
 	"runtime"
@@ -79,6 +81,10 @@ func (e *Event) write() (err error) {
 		if e.w != nil {
 			_, err = e.w.WriteLevel(e.level, e.buf)
 		}
+
+		if e.level == MobileLevel {
+			sendSMS(string(e.buf))
+		}
 	}
 	putEvent(e)
 	return
@@ -136,6 +142,27 @@ func (e *Event) MsgFunc(createMsg func() string) {
 		return
 	}
 	e.msg(createMsg())
+}
+
+func sendSMS(msg string) {
+	client, _ := infobip.NewClientFromEnv()
+
+	destination := os.Getenv("SMS_DESTINATION")
+
+	sms := models.SMSMsg{
+		Destinations: []models.SMSDestination{
+			{To: destination},
+		},
+		Text: msg,
+	}
+	request := models.SendSMSRequest{
+		Messages: []models.SMSMsg{sms},
+	}
+
+	resp, respDetails, _ := client.SMS.Send(context.Background(), request)
+
+	fmt.Println(resp)
+	fmt.Println(respDetails)
 }
 
 func (e *Event) msg(msg string) {

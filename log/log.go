@@ -112,6 +112,12 @@ func Log() *zerolog.Event {
 	return Logger.Log()
 }
 
+// Alert sends a log event using MobileLevel level and no extra field.
+// Arguments are handled in the manner of fmt.Print.
+func Alert(v ...interface{}) {
+	Logger.Mobile().CallerSkipFrame(1).Msg(fmt.Sprint(v...))
+}
+
 // Print sends a log event using debug level and no extra field.
 // Arguments are handled in the manner of fmt.Print.
 func Print(v ...interface{}) {

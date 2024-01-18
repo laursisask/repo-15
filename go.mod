@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/coreos/go-systemd/v22 v22.5.0
+	github.com/infobip-community/infobip-api-go-sdk/v3 v3.4.1 // indirect
 	github.com/mattn/go-colorable v0.1.13
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/pkg/errors v0.9.1
