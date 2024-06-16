@@ -59,3 +59,13 @@ require (
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
+
+replace golang.org/x/net => golang.org/x/net v0.25.0
+
+replace gopkg.in/yaml.v2 => gopkg.in/yaml.v2 v2.4.0
+
+replace golang.org/x/crypto => golang.org/x/crypto v0.23.0
+
+replace github.com/golang/protobuf => github.com/golang/protobuf v1.5.3
+
+replace golang.org/x/text => golang.org/x/text v0.15.0
