@@ -251,7 +251,7 @@ jobs:
     - continue-on-error: true
       id: go
       name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v5
       with:
         cache: true
         go-version-file: go.mod
@@ -514,7 +514,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v3
     - continue-on-error: true
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v5
       with:
         cache: true
         go-version-file: go.mod
@@ -779,7 +779,7 @@ jobs:
     - continue-on-error: true
       id: go
       name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v5
       with:
         cache: true
         go-version-file: go.mod
