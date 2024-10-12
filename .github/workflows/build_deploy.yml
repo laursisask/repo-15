@@ -517,7 +517,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v2
     - continue-on-error: true
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: artifact
         path: dist
@@ -788,7 +788,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: artifact
         path: dist
