@@ -255,7 +255,7 @@ jobs:
       run: scripts/check-releasenotes
     - continue-on-error: true
       name: Install Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8'
     - continue-on-error: true
